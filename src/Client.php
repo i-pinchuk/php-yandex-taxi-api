@@ -76,6 +76,7 @@ class Client {
                 ],
                 'proxy' => $this->getProxy()
             ]);
+
         }
         return $this->httpClient;
     }
