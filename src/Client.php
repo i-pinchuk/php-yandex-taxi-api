@@ -66,6 +66,7 @@ class Client {
         if (!$this->httpClient) {
             $url = self::API_URL . '/' . $apiVersion . '/';
             $apiKey = $this->getApiKey();
+
             $this->httpClient = new \GuzzleHttp\Client([
                 'base_uri' => $url,
                 'headers' => [
