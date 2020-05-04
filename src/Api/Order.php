@@ -27,13 +27,16 @@ class Order extends AbstractApi {
      *
      * @return GuzzleException|ResponseInterface
      */
-    public function all($query = [], $cursor = '', $limit = 500)
+    public function all($query = [], $cursor = null, $limit = 500)
     {
         $params = [
             'limit' => $limit,
-            'cursor' => $cursor,
             'query' => $this->prepareQuery($query)
         ];
+
+        if ($cursor) {
+            $params['cursor'] = $cursor;
+        }
 
         return $this->post('parks/orders/list', $params);
     }

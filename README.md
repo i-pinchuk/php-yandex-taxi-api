@@ -7,7 +7,7 @@ PHP library for [Yandex.Taxi API](https://fleet.taxi.yandex.ru/api/docs/concepts
 You can use [Composer](https://getcomposer.org)
 
 ```bash
-composer require ipinchuk/php-yandex-taxi-api
+$ composer require ipinchuk/php-yandex-taxi-api
 ```
 
 or download from [GitHub](https://github.com/i-pinchuk/php-yandex-taxi-api)
@@ -134,7 +134,7 @@ $client->setProxy('YOR_PROXY_IP');
 
 You need to configure API Key, Client ID and Park ID information in ClientTest.php and run the PHPUnit tests with [PHPUnit](https://phpunit.de)
 ```bash
-phpunit tests/
+$ phpunit tests/
 ```
 
 ## License

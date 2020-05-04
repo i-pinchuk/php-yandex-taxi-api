@@ -35,9 +35,12 @@ class Transaction extends AbstractApi {
     public function all($query = [], $cursor = null, $limit = 1000)
     {
         $params = [
-            'query' => $this->prepareQuery($query),
-            'cursor' => $cursor
+            'query' => $this->prepareQuery($query)
         ];
+
+        if ($cursor) {
+            $params['cursor'] = $cursor;
+        }
 
         return $this->post('parks/transactions/list', $params);
     }
@@ -68,15 +71,18 @@ class Transaction extends AbstractApi {
      *
      * @return GuzzleException|ResponseInterface
      */
-    public function driverTransactions($driver_id, array $query = [], $cursor = '', $limit = 1000)
+    public function driverTransactions($driver_id, array $query = [], $cursor = null, $limit = 1000)
     {
         $query['park']['driver_profile']['id'] = $driver_id;
 
         $params = [
             'limit' => $limit,
-            'cursor' => $cursor,
             'query' => $this->prepareQuery($query),
         ];
+
+        if ($cursor) {
+            $params['cursor'] = $cursor;
+        }
 
         return $this->post('parks/driver-profiles/transactions/list', $params);
     }
